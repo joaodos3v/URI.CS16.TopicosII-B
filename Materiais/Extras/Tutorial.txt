@@ -1,0 +1,5 @@
+$ cd /var/www/html/
+$ mkdir React-Native
+$ mkdir habitos
+$ npm install --save react-native
+$ npm install expo-cli --global

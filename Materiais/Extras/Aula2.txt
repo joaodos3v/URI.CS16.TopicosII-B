@@ -1,0 +1,9 @@
+- esp32
+- tinkercad
+	- esp32 blink (hello world da eletrônica)
+	
+- portas do arduino
+	- digitais (0 ou 1)
+	- analógicas (as que possuem o ~ na frente): possuem variância no sinal
+	- rx e tx: uma convenção na eletrônica para comunicar um dispositivo com outro - comunicação serial
+	- gnd: porta negativa, neutra ou terra
