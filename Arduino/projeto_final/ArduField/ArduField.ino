@@ -7,6 +7,8 @@ SevSeg sevseg; // Instancia um objeto crontroller do display de 7 segmentos
 const int compasso   = 1500; // Altera o compasso da música 
 const int buzzerPort = A5; // A porta utilizada para o buzzer
 int playBuzzer       = 0;
+long randNumber;
+
 
 /*
 * Hino do Grêmio
@@ -33,6 +35,8 @@ void setup() {
   
   playBuzzer = 0;      // 0 = não toca o buzzer | 1 = Hino do Imortal Tricolor | 2 = Hino do Brasil 
   Serial.begin(9600);  // opens serial port, sets data rate to 9600 bps
+
+  sevseg.setChars("0 0 "); // Inicia o placar com '0x0'.
   
   sevseg.begin(COMMON_CATHODE, numDigits, digitPins, segmentPins);
   sevseg.setBrightness(90);
@@ -53,10 +57,20 @@ void loop(){
     }
 
     // Aqui eu pretendo chamar 'atualizaPlacar', mas não chamei pra facilitar nos testes
-    sevseg.setChars("3 2 ");
 
     // Verifica se a porta serial recebeu alguma informação para, então, saber qual dos hinos deve tocar.
     if (Serial.available() > 0) {
+      randNumber = random(0, 9);
+      String randNumber1 = String(randNumber);
+      randNumber = random(0, 9);
+      String randNumber2 = String(randNumber);
+      String score = randNumber1 + " " + randNumber2 + " ";
+      Serial.println("Placar final: " + score);
+
+      char charBuf[50];
+      score.toCharArray(charBuf, 5);
+      sevseg.setChars(charBuf);  
+      
       playBuzzer = Serial.read() - 48; // Lê o byte recebido e diminui 48, que é 0 na tabela ASCII
       Serial.print("Valor recebido: ");
       Serial.println(playBuzzer);
