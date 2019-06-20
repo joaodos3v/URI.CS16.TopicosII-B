@@ -24,9 +24,9 @@ void loop() {
     if (deciSeconds == 10000) { // Reset to 0 after counting for 1000 seconds.
       deciSeconds=0;
     }
-    
-    // sevseg.setNumber(deciSeconds, 1);
-    sevseg.setChars("1  5");
+
+     sevseg.setNumber(deciSeconds, 1);
+//    sevseg.setChars("2  3");
   }
  
   sevseg.refreshDisplay(); // Must run repeatedly
