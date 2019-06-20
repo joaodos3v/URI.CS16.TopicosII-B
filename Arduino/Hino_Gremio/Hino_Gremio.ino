@@ -11,7 +11,7 @@ const int compasso = 1500; // Altera o compasso da música
 void setup() {
   for (int Nota = 0; Nota < 36; Nota++) {//o número 80 indica quantas notas tem a nossa matriz.
     int tempo = compasso/tempoNotas[Nota]; //Tempo = compasso dividido pela indicação da matriz tempoNotas.
-    tone(2, melodia[Nota],tempo); //Toca a nota indicada pela matriz melodia durante o tempo.
+    tone(1, melodia[Nota],tempo); //Toca a nota indicada pela matriz melodia durante o tempo.
     // Para distinguir as notas adicionamos um tempo entre elas (tempo da nota + 20%).
     delay(tempo*1.2);
   }
